@@ -6,10 +6,13 @@ $(document).ready(function(){
 		const nombre = $(this).attr("val");
 		data.nombre = nombre;
 		
+		$("body").addClass("modalLoading");
+		
 		$.post("/getData", {nombre})
 			.then(x => {
 				data.hora = x.hora;
 				data.temperatura = x.temperatura;
+				$("body").removeClass("modalLoading");
 			});
 	});
 		

@@ -27,21 +27,42 @@ require('./server/config/seed.js')(client);
 // Ruta
 
 app.post("/getData", (req, res) => {
-	
+ 	
 	const nombre = req.body.nombre;
+	let continuar = true;
+	
+	while(continuar){
 		
-	client
-		.hgetallAsync(nombre)
-		.then(d => {
-			api.getData(d.lat, d.lon)
-				.then(f => {
-					console.log(f);
-				});
-		})
-		.catch(e => console.log(e));
-	
-	
-	res.status(200).json({hora: "13:30", temperatura: "5°"});
+		try{
+			if(Math.random(0, 1) < 0.1){
+				throw new Error('Hey! the api request failed');
+			}else{
+				continuar = false;
+				client
+					.hgetallAsync(nombre)
+					.then(d => {
+						api.getData(d.lat, d.lon)
+							.then(f => {
+								let hora = moment(f.currently.time * 1000).tz(f.timezone).format("HH:mm");
+								let temperatura = f.currently.temperature;
+								return res.status(200).json({
+									hora,
+									temperatura
+								});
+							})
+							.catch(e => {
+								return res.status(500).json({msg: "Imposible escribir datos"});
+							});
+					})
+					.catch(e => {
+						return res.status(500).json({msg: "Datos no existen en la bd"});
+					});
+			}			
+		}catch(Error){
+			console.log(Error.message);
+			api.setError(client, Error.message);
+		}
+	}
 });
 
 // Correr
