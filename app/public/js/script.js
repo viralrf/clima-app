@@ -1,26 +1,27 @@
 
 $(document).ready(function(){
 	
-	$(".list-group-item").click(function(){
+	$(".list-group-item").click(function(){ // Esta funcion no es del tipo arrow
+	
+		const nombre = $(this).attr("val");
+		data.nombre = nombre;
 		
-		$.get("/getData")
+		$.post("/getData", {nombre})
 			.then(x => {
-				city.hora = x.hora;
+				data.hora = x.hora;
+				data.temperatura = x.temperatura;
 			});
-		
 	});
 		
-	const city = mobx.observable({
+	const data = mobx.observable({
 		nombre: '',
 		hora: '',
 		temperatura: ''
 	});
 
-	mobx.autorun(function city_nombre () {
-		$("#pCiudad").text(city.nombre);
-		$("#pHora").text(city.hora);
-		$("#pTemperatura").text(city.temperatura);
+	mobx.autorun(function () {
+		$("#pCiudad").text(data.nombre);
+		$("#pHora").text(data.hora);
+		$("#pTemperatura").text(data.temperatura);
 	});
-	
-	
 });
