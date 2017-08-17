@@ -13,6 +13,9 @@ $(document).ready(function(){
 				data.hora = x.hora;
 				data.temperatura = x.temperatura;
 				$("body").removeClass("modalLoading");
+			})
+			.catch(e => {
+				console.log("Error al recibir datos");
 			});
 	});
 		
