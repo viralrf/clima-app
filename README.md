@@ -4,12 +4,12 @@ Revisa la hora y temperatura de distintas ciudades
 
 ## Inicio
 
-Estas instrucciones permitiran instalar la aplicacion en un ambiente heroku, tambien utilizando la plataforma redis-cloud.
+Estas instrucciones permitirán instalar la aplicación en un ambiente heroku, también utilizando la plataforma redis-cloud.
 
 ### Prerrequisitos
 
-Para instalar y utilizar esta aplicacion se necesitan las siguientes herramientas.
-(descritas las versiones utilizadas durante su desarrollo).
+Para instalar y utilizar esta aplicación se necesitan las siguientes herramientas.
+(Descritas las versiones utilizadas durante su desarrollo).
 
 ```
 nodeJs v6.11.2
@@ -19,11 +19,11 @@ heroku-cli v6.13.18
 
 ```
 
-Tambien sera necesario crear una cuenta gratuita en heroku.
+También será necesario crear una cuenta gratuita en heroku.
 
 ### Instalar
 
-Para instalar la aplicacion primero se debe copiar el repositorio desde github.
+Para instalar la aplicación primero se debe copiar el repositorio desde github.
 
 ```
 git clone https://github.com/viralrf/clima-app.git nombre_carpeta
@@ -47,7 +47,7 @@ git push heroku master
 
 ```
 
-Finalmente utilizamos el siguiente comando para abrir la aplicacion en el navegador.
+Finalmente utilizamos el siguiente comando para abrir la aplicación en el navegador.
 
 ```
 heroku open
