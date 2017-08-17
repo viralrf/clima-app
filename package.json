@@ -6,6 +6,9 @@
   "scripts": {
     "start": "nodemon app/app.js"
   },
+  "engines":{
+	"node": "6.11.2"
+  },
   "author": "Samuel Noguera",
   "license": "ISC",
   "devDependencies": {

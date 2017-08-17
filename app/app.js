@@ -8,10 +8,9 @@ const moment = require('moment-timezone');
 const api = require('./server/api/api.js');
 
 // Configuracion
-
 const app = express();
-const client = redis.createClient();
-const port = 3000;
+const client = redis.createClient(16053, "redis-16053.c14.us-east-1-2.ec2.cloud.redislabs.com", {no_ready_check: true});
+const port= Number(process.env.PORT || 3000);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
