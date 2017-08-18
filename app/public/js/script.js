@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 	
-	$(".list-group-item").click(function(){ // Funcion normal, necesito el "this"
+	$(".list-group-item").click(function(){
 	
 		const nombre = $(this).attr("val");
 		data.nombre = nombre;
