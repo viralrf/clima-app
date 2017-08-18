@@ -25,7 +25,7 @@ $(document).ready(function(){
 		temperatura: ''
 	});
 
-	mobx.autorun(function () {
+	mobx.autorun(() => {
 		$("#pCiudad").text(data.nombre);
 		$("#pHora").text(data.hora);
 		$("#pTemperatura").text(data.temperatura);
