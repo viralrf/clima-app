@@ -32,11 +32,11 @@ const agregarCiudades = function(client){
 	ciudades.map(ciudad => {
 		client
 			.hmsetAsync(ciudad.nombre, "lat", ciudad.lat, "lon", ciudad.lon)
-			.then(d => {
-				console.log(d);
+			.then(msgExito => {
+				console.log(msgExito);
 			})
-			.catch(e => {
-				console.log(e);
+			.catch(msgError => {
+				console.log(msgError);
 				return;
 			});
 	});
